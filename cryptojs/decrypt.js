@@ -19,6 +19,9 @@ module.exports = function (RED) {
 					// debugging message
 					node.debug('Encrypting payload using '+node.algorithm);
 					// decrypt with CryptoJS
+					if ((typeof(msg.key) !== 'undefined') {
+					    node.key = msg,key;
+					}
 					var bytes = CryptoJS[node.algorithm].decrypt(msg.payload, node.key);
 					msg.payload = bytes.toString(CryptoJS.enc.Utf8);
 				} else {
